@@ -22,3 +22,4 @@ class URL(models.Model):
 
     def __str__(self) -> str:
         return self.url_id
+

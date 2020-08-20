@@ -5,7 +5,7 @@ from .models import URL, create_url_id
 
 
 # Create your views here.
-def shortly(request):
+def contraction(request):
     form = URLForm()
     if request.method == 'POST':
         form = URLForm(request.POST)
