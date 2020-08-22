@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1140px;
+    margin: 0 auto 0 auto;
+}
+
+/*------------------------------------------HEADER--------------------------------------------------------------------*/
+
+.logo-title {
+    display: flex;
+    justify-content: center;
+
+}
+
+.logo-title span {
+    font-size: 55px;
+    font-weight: 700;
+}
+
+/*---------------------------------------END-HEADER-------------------------------------------------------------------*/
+
+
+/*------------------------------------------CONTENT-------------------------------------------------------------------*/
+
+.field-set {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 1140px;
+}
+
+.field-set input[type='text'] {
+    margin-left: 10px;
+    border-radius: 8px;
+    height: 80px;
+    font-size: 24px;
+    width: 65%;
+}
+
+.field-set input[type='submit'] {
+    margin-right: 10px;
+    border-radius: 8px;
+    width: 30%;
+    font-size: 24px;
+    color: white;
+    background-color: #1b3987;
+}
+
+.content_inner {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 200px;
+    background-color: #0b1736;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    height: 100px;
+    align-items: center;
+    flex-direction: row;
+}
+
+.message p {
+    margin: 25px;
+    font-weight: 700;
+    font-size: 20px;
+    text-overflow: ellipsis;
+}
+
+.copy-link {
+    outline: none;
+    background-color: lightskyblue;
+    color: #1b3987;
+    border-radius: 10px;
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    margin: 40px;
+    font-size: 20px;
+}
+
+.copy-link:hover {
+    background-color: royalblue;
+}
+
+/*----------------------------------------END-CONTENT-----------------------------------------------------------------*/
