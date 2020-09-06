@@ -2,21 +2,59 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    border: none;
     text-decoration: none;
     color: black;
+    outline: none;
+    border: none;
+    overflow: hidden;
+}
+
+
+ul, li {
+    list-style: none;
 }
 
 .container {
-    height: 100vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
     width: 1140px;
     margin: 0 auto 0 auto;
 }
 
+
 /*------------------------------------------HEADER--------------------------------------------------------------------*/
+
+
+.auth-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 18px;
+    color: white;
+}
+
+.authorization, .registration, .logout, .profile, .main-page {
+    margin-left: 10px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 8px;
+    background-color: #2a5bd7;
+}
+
+.auth-menu .username {
+    padding: 10px;
+    font-size: 23px;
+}
+
+.auth-menu a div {
+    color: white;
+}
+
+.auth-menu div:first-child {
+    margin-right: 5px;
+}
+
 
 .logo-title {
     display: flex;
@@ -33,6 +71,10 @@
 
 
 /*------------------------------------------CONTENT-------------------------------------------------------------------*/
+
+.content {
+    margin-top: 20%;
+}
 
 .field-set {
     display: flex;
@@ -67,7 +109,7 @@
     background-color: #0b1736;
 }
 
-.message {
+.messages {
     display: flex;
     justify-content: center;
     background-color: white;
@@ -97,6 +139,170 @@
 
 .copy-link:hover {
     background-color: royalblue;
+}
+
+.messages .error {
+    flex: 1;
+    font-weight: 500;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    background-color: rgb(228, 5, 0);
+    border-radius: 5px;
+}
+
+.messages .error a {
+    color: white;
+    font-weight: 700;
+}
+
+.auth-form {
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+
+}
+
+.label-field {
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+}
+
+.auth-form input {
+    font-size: 20px;
+    width: 300px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.auth-form form {
+    padding: 50px;
+    background-color: #2a5bd7;
+    border-radius: 10px;
+}
+
+.auth-form button {
+    width: 100%;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 10px;
+    color: white;
+    background-color: #4f91dd;
+
+}
+
+.submit-button {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.auth-form ul {
+    padding: 5px;
+}
+
+.auth-form ul li {
+    padding: 3px;
+    font-size: 17px;
+    background-color: #ED2939;
+    border-radius: 6px;
+    padding-left: 8px;
+}
+
+.profile-content {
+    display: flex;
+    height: 100%;
+}
+
+.links {
+    flex: 4;
+}
+
+.link-detail {
+    flex: 8;
+}
+
+.links {
+    overflow-y: auto;
+}
+
+.links-top {
+    padding: 10px;
+    background-color: #f5f6f7;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-short-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: #828387 1px solid;
+}
+
+.link-create-date {
+    font-size: 14px;
+    color: #828387;
+}
+
+.link-short-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.link-short-content p {
+    padding: 3px;
+}
+
+.link-short-click {
+    align-self: center;
+}
+
+#absolute_uri {
+    font-weight: 600;
+    color: darkorange;
+}
+
+.link-detail-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.link-detail-content {
+    padding: 15px;
+}
+
+.link-detail-title {
+    font-size: 24px;
+}
+
+.link-detail-url {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.link-detail-url * {
+    padding: 8px;
+}
+
+.link-detail-header * {
+    padding: 8px;
+}
+
+.copy-link-detail {
+    outline: none;
+    background-color: lightskyblue;
+    color: #1b3987;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.copy-link-detail:hover, .copy-link:hover{
+    background-color: #2a5bd7;
 }
 
 /*----------------------------------------END-CONTENT-----------------------------------------------------------------*/

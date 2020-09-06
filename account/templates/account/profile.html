@@ -1,0 +1,66 @@
+{% extends 'shortcut/base.html' %}
+
+{% block title %}
+    Профиль
+{% endblock %}
+
+{% block content %}
+    <div class="profile-content">
+        <div class="links">
+            <div class="links-top">
+                {% if user_urls|length < 1 %}
+                    <p>{{ user_urls|length }} ссылка</p>
+                {% else %}
+                    <p>{{ user_urls|length }} ссылок</p>
+                {% endif %}
+                <p>Количество переходов</p>
+            </div>
+            <div class="links-main">
+                {% for user_url in user_urls %}
+                    <a href="{% url 'account:profile_by_detail' user_url.url_id %}">
+                        <div class="link-short-detail">
+                            <div class="link-short-content">
+                                <p>{{ user_url.created|date:"M.d" }}</p>
+                                <p id="absolute_uri">{{ absolute_uri }}{{ user_url.url_id }}</p>
+                                <p>{{ user_url.link }}</p>
+                            </div>
+                            <div class="link-short-click">
+
+                                <p>{{ user_url.usage }}</p>
+                            </div>
+                        </div>
+                    </a>
+
+                {% endfor %}
+
+            </div>
+        </div>
+
+        <div class="link-detail">
+            {% if url %}
+                <div class="link-detail-content">
+                    <div class="link-detail-header">
+                        <div class="link-detail-create">
+                            {{ url.created }}
+                        </div>
+                        <span> | </span>
+                        <div class="link-detail-username">
+                            {{ url.user }}
+                        </div>
+                    </div>
+                    <div class="link-detail-main">
+                        <div class="link-detail-title">
+                            <a href="{{ url.link }}">{{ url.link }}</a>
+                        </div>
+                        <div class="link-detail-url">
+                            <p>{{ absolute_uri }}{{ url.url_id }}</p>
+                            <button class="copy-link-detail">Копировать</button>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+
+{% endblock %}
