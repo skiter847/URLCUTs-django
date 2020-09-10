@@ -1,0 +1,23 @@
+{% extends 'shortcut/base.html' %}
+
+{% block content %}
+    <div class="auth-form">
+        <form method="post">
+            {% for field in form %}
+                <div class="label-field">{{ field.label }}</div>
+                <div>{{ field }}</div>
+            {% endfor %}
+            {% if form.errors %}
+                {% for key, value in form.errors.items %}
+                    <div class="error danger-error">
+                        {{ value }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            {% csrf_token %}
+            <div class="submit-button">
+                <button type="submit">Вход</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

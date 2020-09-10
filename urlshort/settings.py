@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
@@ -12,7 +13,7 @@ SECRET_KEY = 'i!n5d-77dafn-x#*+1!t9furc5-ye5dsman=ck37m#&p$x66l('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '908c6dff0070.ngrok.io']
 
 # Application definition
 
@@ -24,6 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shortcut.apps.ShortcutConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -36,6 +38,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 ROOT_URLCONF = 'urlshort.urls'
 
 TEMPLATES = [
@@ -44,6 +50,7 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'account.context_processors.absolute_uri',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
@@ -60,8 +67,13 @@ WSGI_APPLICATION = 'urlshort.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'urlshort',
+        'USER': os.getenv('USER_DB'),
+        'PASSWORD': os.getenv('PASSWORD_DB'),
+        'HOST': '127.0.0.1',
+        'PORT': '',
+
     }
 }
 
@@ -86,7 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+
+LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
 

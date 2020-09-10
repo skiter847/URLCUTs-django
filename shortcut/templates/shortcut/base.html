@@ -4,7 +4,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Главная</title>
+    <title>{% block title %}
+        Главная
+    {% endblock %}</title>
     <script src="{% static 'shortcut/js/jquery-3.5.1.min.js' %}">
 
     </script>
@@ -12,16 +14,60 @@
 </head>
 <body>
 
+
 <div class="container">
-    <div class="content">
-        <div class="logo">
-            <div class="logo-title">
-                <span>URL-CUTs</span>
-            </div>
+
+    {% block auth-menu %}
+        <div class="auth-menu">
+            {% if request.user.is_authenticated %}
+                <div class="username">{{ request.user.username }}</div>
+                <div class="main-page">
+                    <a href="{% url 'shortcut:short' %}">
+                        <div>Главная</div>
+                    </a>
+                </div>
+                <div class="profile">
+                    <a href="{% url 'account:profile' %}">
+                        <div>Профиль</div>
+                    </a>
+                </div>
+                <div class="logout">
+                    <a href="{% url 'account:logout' %}">
+                        <div>Выход</div>
+                    </a>
+                </div>
+
+            {% else %}
+                <div class="main-page">
+                    <a href="{% url 'shortcut:short' %}">
+                        <div>Главная</div>
+                    </a>
+                </div>
+                <div class="authorization">
+                    <a href="{% url 'account:login' %}">
+                        <div>Авторизация</div>
+                    </a>
+                </div>
+                <div class="registration">
+                    <a href="{% url 'account:register' %}">
+                        <div>Регистрация</div>
+                    </a>
+                </div>
+            {% endif %}
 
         </div>
-        <div class="content_inner">
-            {% block content %}
+    {% endblock %}
+
+
+    {% block content %}
+        <div class="content">
+            <div class="logo">
+                <div class="logo-title">
+                    <span>URL-CUTs</span>
+                </div>
+
+            </div>
+            <div class="content_inner">
                 <form method="POST">
                     <div class="field-set">
                         {% for field in form %}
@@ -31,19 +77,26 @@
                         <input type="submit" value="Сократить">
                     </div>
                 </form>
+            </div>
+            <div class="messages">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="{{ message.tags }}">{{ message }} <a href="{% url 'account:login' %}">Авторизоваться.</a>
+                        </div>
+                    {% endfor %}
 
-            {% endblock %}
+                {% endif %}
+                {% if link %}
+                    <p>Ваша ссылка: <a href="{{ link }}"> <span class="link">{{ link }}</span></a></p>
+                    <button class="copy-link">Копировать</button>
+                {% endif %}
+            </div>
         </div>
-        <div class="message">
-            {% if absolute_uri %}
-                <p>Ваша ссылка: <a href="{{ absolute_uri }}"> <span class="link">{{ absolute_uri }}</span></a></p>
-                <button class="copy-link">Копировать</button>
-            {% endif %}
+
+
         </div>
-    </div>
+    {% endblock %}
 
-
-</div>
 <script src="{% static 'shortcut/js/main.js' %}"></script>
 </body>
 </html>
