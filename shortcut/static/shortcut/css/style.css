@@ -34,7 +34,7 @@ ul, li {
     color: white;
 }
 
-.authorization, .registration, .logout, .profile, .main-page {
+.login, .registration, .logout, .profile, .main-page {
     margin-left: 10px;
     padding: 15px;
     font-size: 20px;
