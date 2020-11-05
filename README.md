@@ -22,6 +22,8 @@ registration, login, systems, profile and another.
 
 ## Installation
 
-Clone repository  `git clone https://github.com/skiter847/URLCUTs-django.git`
+Clone repository  `git clone https://github.com/skiter847/URLCUTs-django.git && cd URLCUTs-django`
+
+Install requirements `pip install -r requirements.txt`
 
 Open terminal and write `python manage.py runserver`
